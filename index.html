@@ -38,10 +38,51 @@
                     <label for="email">Email</label>
                   </div>
                 </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input id="password" type="password" class="validate">
+                    <label for="password">Password</label>
+                  </div>
+                </div>
+                <a class="waves-effect waves-light btn-small"><i class="material-icons left">check</i><span class="yellow-text text-darken-1">Login</span></a><br>
+                <a class="waves-effect waves-light modal-trigger light-blue darken-4" href="#modal2"><span class="yellow-text text-darken-1">Don't have an account already? Sign-Up here</span></a>
               </div>
             </div>
           </div>
-        <li><a href="#!"><span class="yellow-text text-darken-1"><b>Register/Sign-Up</span></a></li>
+          <li><a class="waves-effect waves-light btn modal-trigger light-blue darken-4" href="#modal2"><span class="yellow-text text-darken-1"><b>Register/Sign-Up</span></a></li>
+          <div id="modal2" class="modal">
+            <div class="modal-content light-blue darken-4">
+              <div class="modal_font">
+                <h3>Register</h3>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input id="first_name" type="text">
+                    <label for="first_name">First Name</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input id="first_name" type="text">
+                    <label for="first_name">Last Name</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input id="email" type="email" class="validate">
+                    <label for="email">Email</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input id="password" type="password" class="validate">
+                    <label for="password">Password</label>
+                  </div>
+                </div>
+                <a class="waves-effect waves-light btn-small"><i class="material-icons left">check</i><span class="yellow-text text-darken-1">Login</span></a>
+                <a class="waves-effect waves-light modal-trigger light-blue darken-4" href="#modal1"><span class="yellow-text text-darken-1">Have an account already? Sign-In</span></a>
+              </div>
+            </div>
+          </div>
       </ul>
       <div class="row">
         <ul id="slide-out" class="side-nav">
@@ -56,8 +97,8 @@
               </div>
           </li>
 
-          <li><a class="waves-effect" href=""><i class="material-icons">person</i><span class="yellow-text text-darken-1">Sign-In</span></a></li>
-          <li><a class="waves-effect" href="#!"><i class="material-icons">house</i>Home</a></li>
+          <li><a class="waves-effect waves-light btn modal-trigger light-blue darken-4" href="#modal1"><i class="material-icons">person</i><span class="yellow-text text-darken-1">Sign-In</span></a></li>
+          <li><a class="waves-effect"><i class="material-icons">house</i>Home</a></li>
           <li><a class="waves-effect" href="#!"><i class="material-icons">favorite_border</i>My Places</a></li>
           <li><a class="waves-effect" href="#!"><i class="material-icons">my_location</i>Track Location</a></li>
           <li><a class="waves-effect" href="#!"><i class="material-icons">explore</i>My Tracks</a></li>
@@ -82,7 +123,7 @@
         });
       }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAv4RymAUJljDa-eIquWed9kcdgG4dSIww&callback=initMap"
+    <script src="https://maps.googleapis.com/maps/api/js?key=#AIzaSyAv4RymAUJljDa-eIquWed9kcdgG4dSIww&callback=initMap"
     async defer></script>
 
 
