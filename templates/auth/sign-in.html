@@ -1,16 +1,8 @@
+<!DOCTYPE html>
 <html>
-  <head>
-
-  <style>
-    #map {
-      height: 100%;
-    }
-    .modal_font{
-      font-family: courier new;
-      color: #fdd835;
-    }
-  </style>
-    <!--Import Google Icon Font-->
+<head>
+	<title>Sign-In</title>
+	    <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
@@ -18,11 +10,8 @@
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
-  </head>
-
-  <body>
-
-                                                            <!--Side Nav Bar -->                                                            
+</head>
+<body>
   <nav>
     <div class="nav-wrapper  light-blue darken-4">
       <a href="#" class="brand-logo center"><span class="icon" style="text-shadow: rgb(1, 61, 109) 0px 0px 0px, rgb(1, 62, 111) 1px 1px 0px, rgb(1, 63, 113) 2px 2px 0px, rgb(1, 65, 115) 3px 3px 0px, rgb(1, 66, 117) 4px 4px 0px, rgb(1, 67, 120) 5px 5px 0px, rgb(1, 68, 122) 6px 6px 0px, rgb(1, 70, 124) 7px 7px 0px, rgb(1, 71, 126) 8px 8px 0px, rgb(1, 72, 128) 9px 9px 0px, rgb(1, 73, 131) 10px 10px 0px, rgb(1, 75, 133) 11px 11px 0px, rgb(1, 76, 135) 12px 12px 0px, rgb(1, 77, 137) 13px 13px 0px, rgb(1, 78, 140) 14px 14px 0px, rgb(1, 80, 142) 15px 15px 0px, rgb(1, 81, 144) 16px 16px 0px, rgb(1, 82, 146) 17px 17px 0px, rgb(1, 83, 148) 18px 18px 0px, rgb(1, 85, 151) 19px 19px 0px, rgb(1, 86, 153) 20px 20px 0px; font-size: 26px; color: rgb(253, 216, 53); height: 103px; width: 103px; line-height: 65px; border-radius: 50%; text-align: center; background-color: rgb(1, 87, 155);">Marker!</span></a>
@@ -55,19 +44,18 @@
       </div>
     </div>
   </nav>
-                                                          <!--Maps-->
-    <div id="map"></div>
-    <script>
-      var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 24.9200187, lng: 67.13449539},
-          zoom: 14
-        });
-      }
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=#AIzaSyA7EsmyKLBgtl13SRV5Qn56cowFm2jQhII&callback=initMap"
-    async defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -103,17 +91,6 @@
 </footer>
 
 
-            
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -128,27 +105,14 @@
     <!--JavaScript at end of body for optimized loading-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-
     <script>
-      //Adding materialize initializations here 
+    	$('.button-collapse').sideNav();
 
-      $('.button-collapse').sideNav();
-
-      $(document).ready(function(){
-        $('.modal').modal({
-          startingTop : '10%'
-        });
+      	$(document).ready(function(){
+        	$('.modal').modal({
+          		startingTop : '10%'
+        	});
       });
-       
     </script>
-        <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="/__/firebase/6.1.1/firebase-app.js"></script>
-
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-         https://firebase.google.com/docs/web/setup#reserved-urls -->
-
-    <!-- Initialize Firebase -->
-    <script src="/__/firebase/init.js"></script>
-  </body>
+</body>
 </html>
-        
