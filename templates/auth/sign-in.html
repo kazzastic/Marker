@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<style>
+		body {
+    		display: flex;
+    		min-height: 100vh;
+    		flex-direction: column;
+  		}
+
+		main {
+		    flex: 1 0 auto;
+		}
+     
+	</style>
 	<title>Sign-In</title>
 	    <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -12,9 +24,11 @@
     <meta charset="utf-8">
 </head>
 <body>
+
+<header>
   <nav>
     <div class="nav-wrapper  light-blue darken-4">
-      <a href="#" class="brand-logo center"><span class="icon" style="text-shadow: rgb(1, 61, 109) 0px 0px 0px, rgb(1, 62, 111) 1px 1px 0px, rgb(1, 63, 113) 2px 2px 0px, rgb(1, 65, 115) 3px 3px 0px, rgb(1, 66, 117) 4px 4px 0px, rgb(1, 67, 120) 5px 5px 0px, rgb(1, 68, 122) 6px 6px 0px, rgb(1, 70, 124) 7px 7px 0px, rgb(1, 71, 126) 8px 8px 0px, rgb(1, 72, 128) 9px 9px 0px, rgb(1, 73, 131) 10px 10px 0px, rgb(1, 75, 133) 11px 11px 0px, rgb(1, 76, 135) 12px 12px 0px, rgb(1, 77, 137) 13px 13px 0px, rgb(1, 78, 140) 14px 14px 0px, rgb(1, 80, 142) 15px 15px 0px, rgb(1, 81, 144) 16px 16px 0px, rgb(1, 82, 146) 17px 17px 0px, rgb(1, 83, 148) 18px 18px 0px, rgb(1, 85, 151) 19px 19px 0px, rgb(1, 86, 153) 20px 20px 0px; font-size: 26px; color: rgb(253, 216, 53); height: 103px; width: 103px; line-height: 65px; border-radius: 50%; text-align: center; background-color: rgb(1, 87, 155);">Marker!</span></a>
+      <a href="#" class="brand-logo center"><span class="icon" style="font-size: 26px; color: rgb(253, 216, 53); height: 103px; width: 103px; line-height: 65px; border-radius: 50%; text-align: center; background-color: rgb(1, 87, 155);">Marker!</span></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
       </ul>
       <div class="row">
@@ -44,34 +58,48 @@
       </div>
     </div>
   </nav>
+</header>
 
+<main>
+  <!--Sign-In Page-->  
+  	<div class="row">
+    	<div class="col s12">
+    		<div class="card yellow darken-1">
+    			<div class="card-content white-text">
+    				<span class="card-title"><span class="light-blue-text text-darken-4"><b>Sign-In</b></span></span>
+    				<div class="row">
+    					<form class="col s12">
+    						<div class="row">
+    							<div class="input-field col s12">
+    								<input type="text" id="email" class="validate">
+    								<label for="email"><span class="light-blue-text text-darken-4"><b>Email<b></span></label>
+    							</div>
+    							<div class="input-field col s12">
+    								<input type="password" id="password">
+    								<label for="password"><span class="light-blue-text text-darken-4"><b>Password</b></span></label>
+    							</div>
+    						</div>
+    					</form>
+    				</div>
+    			</div>
+    			<div class="card-action">
+    				<a href="#" class="waves-effect waves-teal"><span class="light-blue-text text-darken-4">Login-In</span></a>
+    				<p><span class="light-black-text text-darken-4">Don't have an account already?</span></p>
+    				<a href="#" class="waves-effect waves-teal"><span class="light-blue-text text-darken-4">Register</span></a>
+    			</div>
+    		</div>
+    	</div>
+  	</div>	
+</main>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+         
 
 <!--Footer-->
 <footer class="page-footer light-blue darken-4">
   <div class="container">
     <div class="row">
       <div class="col l6 s12">
-        <h5 class="yellow-text text-darken-1">Marker!</h5>
+        <h5 class="yellow-text text-darken-1">About-Us</h5>
           <p class="yellow-text text-darken-1">Never loose sight of where your shit is!</p>
       </div>
       <div class="col l4 offset-l2 s12">
@@ -91,20 +119,10 @@
 </footer>
 
 
-
-
-
-
-
-
-
-
-
-
-
     <!--JavaScript at end of body for optimized loading-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
     <script>
     	$('.button-collapse').sideNav();
 
