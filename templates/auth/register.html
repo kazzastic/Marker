@@ -91,7 +91,7 @@
     				</div>
     			</div>
     			<div class="card-action">
-    				<a href="#" class="waves-effect waves-teal"><span class="light-blue-text text-darken-4">Sign-Up</span></a>
+    				<a href="#" class="waves-effect waves-teal" id="push"><span class="light-blue-text text-darken-4">Sign-Up</span></a>
     				<p><span class="light-black-text text-darken-4">Have an account already?</span></p>
     				<a href="#" class="waves-effect waves-teal"><span class="light-blue-text text-darken-4">Login-In</span></a>
     			</div>
@@ -126,19 +126,51 @@
   </div>
 </footer>
 
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-firestore.js"></script>
 
-    <!--JavaScript at end of body for optimized loading-->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
-    <script>
-    	$('.button-collapse').sideNav();
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
 
-      	$(document).ready(function(){
-        	$('.modal').modal({
-          		startingTop : '10%'
-        	});
-      });
-    </script>
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCxfrSqQHCFdLXAzFkCTDKowb1xDKzNc-E",
+    authDomain: "we-marker.firebaseapp.com",
+    databaseURL: "https://we-marker.firebaseio.com",
+    projectId: "we-marker",
+    storageBucket: "we-marker.appspot.com",
+    messagingSenderId: "726485613802",
+    appId: "1:726485613802:web:75edd4ab891bdbdb"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+  //auth and DB 
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+
+  //firestore setting update
+  //db.setting({timestampsInSnapshots: true});
+</script>
+
+<script src="auth.js"></script>
+
+<!--JavaScript at end of body for optimized loading-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+<script>
+	$('.button-collapse').sideNav();
+
+  	$(document).ready(function(){
+    	$('.modal').modal({
+      		startingTop : '10%'
+    	});
+  });
+</script>
 </body>
 </html>
