@@ -1,4 +1,4 @@
-function get_loc(){
+/*function get_loc(){
 	axios.post('https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyA7EsmyKLBgtl13SRV5Qn56cowFm2jQhII')
 	.then(function(response){
 		console.log(response);
@@ -13,6 +13,7 @@ function get_loc(){
 		console.log(error);
 	});
 }
+get_loc();*/
 
 /*function showPosition(position){
 	var lat, lng;
@@ -21,23 +22,28 @@ function get_loc(){
 	console.log(window.lat,window.lng);
 }*/
 
+
+//Global varibales for google api
 var map;
+var lat, lng;
 function initMap() {
+
+	//API that calls the gelocation of the person, meaning where he/she is right at this moment
+	axios.post('https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyA7EsmyKLBgtl13SRV5Qn56cowFm2jQhII')
+	.then(function(response){
+		console.log(response);
+		lat = response.data.location.lat;
+		lng = response.data.location.lng;
+		console.log(lat, lng);
+
+	})
+	.catch(function(error){
+		console.log(error);
+	});
+
+	//creating the map and showing the current location of the user
 	map = new google.maps.Map(document.getElementById('map'), {
-		center: {lat: window.lat, lng: window.long },
+		center: {lat: parseFloat(lat), lng: parseFloat(lng) },
 		zoom: 14
 	});
-
-	/*google.maps.event.addEventListener(map, 'click',
-		function(event){
-
-		});*/
 }
-
-f/*unction addMarker(lat, lng){
-	var marker = new google.maps.Marker({
-		position : coords,
-		map : map
-	});
-}
-addMarker(window.lat, window.lng);*/
