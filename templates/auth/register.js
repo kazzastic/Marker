@@ -21,18 +21,3 @@ btn.addEventListener('click', (e)=>{
  		console.log('user signed out');
  	});
  });
-
-/*login a user and console log their cred
-
-var login_btn = document.querySelector('#push');
-login_btn.addEventListener('click', (e) => {
-	e.preventDefault();
-
-	const email = document.querySelector('#email_s').value;
-	const pass = document.querySelector('#password_s').value;
-
-	auth.signInWithEmailAndPassword(email, pass).then(cred =>{
-		console.log(cred.user);
-
-	});
-});*/
