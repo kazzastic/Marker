@@ -1,3 +1,7 @@
+auth.onAuthStateChanged(user => {
+	console.log(user);
+});
+
 //sign-up a user and console log their creds
 
 var btn = document.querySelector('#push');
