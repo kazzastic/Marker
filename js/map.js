@@ -40,15 +40,16 @@ function initMap() {
 		addMarker({coords: event.latLng});
 		latitude = event.latLng.lat();
 		longitude = event.latLng.lng();
-		window.localStorage.setItem('show', 1);
+		//window.localStorage.setItem('show', 0);
 		show = window.localStorage.getItem('show');
 		show = parseInt(show);
 		show = show +1;
-		markerz[i] = new Object();
-		markerz[i].lat = latitude;
-		markerz[i].lng = longitude;
+		window.localStorage.setItem('show', show);
+		markerz[show] = new Object();
+		markerz[show].lat = latitude;
+		markerz[show].lng = longitude;
 		
-		console.log(markerz[i]);
+		console.log(markerz[show]);
 	});	
 
 	function addMarker(props){
