@@ -1,4 +1,4 @@
-var local;
+/*var local;
 var show;
 window.localStorage.setItem('name', 'Shameer Server');
 show = window.localStorage.getItem('name');
@@ -15,4 +15,4 @@ db.collection("users").add({
 })
 .catch(function(error) {
     console.error("Error adding document: ", error);
-});test.firestore.js
+});test.firestore.js*/

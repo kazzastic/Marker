@@ -23,6 +23,10 @@ get_loc();*/
 }*/
 var map, infoWindow, marker, pos;
 var latitude, longitude;
+var show;
+var markerz = [];
+
+
 function initMap() {
 	var uluru = {lat: 24.953559, lng: 67.059568};
 	map = new google.maps.Map(document.getElementById('map'), {
@@ -36,7 +40,15 @@ function initMap() {
 		addMarker({coords: event.latLng});
 		latitude = event.latLng.lat();
 		longitude = event.latLng.lng();
-		console.log(latitude, longitude);
+		window.localStorage.setItem('show', 1);
+		show = window.localStorage.getItem('show');
+		show = parseInt(show);
+		show = show +1;
+		markerz[i] = new Object();
+		markerz[i].lat = latitude;
+		markerz[i].lng = longitude;
+		
+		console.log(markerz[i]);
 	});	
 
 	function addMarker(props){
@@ -87,16 +99,4 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 	                      'Error: The Geolocation service failed.' :
 	                      'Error: Your browser doesn\'t support geolocation.');
 	infoWindow.open(map);
-}
-
-
-function addMarker(coords){
-	var marker = new google.maps.Marker({
-		position : coords,
-		map : map
-	}); 
-    marker.addListener('click', function(){
-    	infoWindow.open(map, marker);
-    	console.log(coords);
-    });
 }
