@@ -62,7 +62,7 @@
                                                           <!--Maps-->
 <div id="map"></div>
 <script src="js/map.js"></script> 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7EsmyKLBgtl13SRV5Qn56cowFm2jQhII&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=#AIzaSyA7EsmyKLBgtl13SRV5Qn56cowFm2jQhII&callback=initMap" async defer></script>
 
 
 
@@ -116,9 +116,9 @@
 
 
 <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script>
 
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
@@ -135,6 +135,7 @@
     messagingSenderId: "726485613802",
     appId: "1:726485613802:web:75edd4ab891bdbdb"
   };
+
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
 
@@ -152,6 +153,7 @@
     <!--JavaScript at end of body for optimized loading-->
     <script src="templates/auth/login.js"></script>
     <script src="templates/auth/register.js"></script>
+    <script src="js/database.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
