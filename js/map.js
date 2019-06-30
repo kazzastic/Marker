@@ -25,7 +25,7 @@ var map, infoWindow, marker, pos;
 var latitude, longitude;
 var show;
 var markerz = [];
-
+//window.localStorage.setItem('show', show);
 
 function initMap() {
 	var uluru = {lat: 24.953559, lng: 67.059568};
@@ -40,7 +40,7 @@ function initMap() {
 		addMarker({coords: event.latLng});
 		latitude = event.latLng.lat();
 		longitude = event.latLng.lng();
-		//window.localStorage.setItem('show', 0);
+		
 		show = window.localStorage.getItem('show');
 		show = parseInt(show);
 		show = show +1;
