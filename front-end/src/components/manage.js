@@ -37,7 +37,7 @@ class Manage extends Component{
         
         this.props.changeModeASync(selectedMode);
 
-        setTimeout(()=>this.onModeUpdate(),1000);
+        setTimeout(()=>null,1000);
     }
 
 
@@ -46,13 +46,31 @@ class Manage extends Component{
         this.props.deleteObjectSync(currentObjId);
         this.setState({
             currentObjId:null,
+            /*
             currentDirectionResponse:undefined,
             currentDistanceResponse:undefined,
+            */
             none:true
         })
     }
 
 
+    filterResponse = () => {
+        const {objects} = this.props;
+        const {currentObjId,none} = this.state;
+        
+        if (none && !currentObjId)
+            return false;
+        
+        const [extractedObj] = objects.filter(o => o.id === currentObjId);
+        console.log('filter:',extractedObj);
+        const {directionResponse,distanceResponse} = extractedObj;
+        return {currentDirectionResponse:directionResponse,
+        currentDistanceResponse:distanceResponse};
+        
+    }
+
+    /*
     onModeUpdate = () => {
         const {currentObjId,none} = this.state;
         const {objects} = this.props;
@@ -70,17 +88,21 @@ class Manage extends Component{
             currentDistanceResponse:distanceResponse?distanceResponse:undefined
         });
     }
-
+    */
 
     handleChange = (e) => {
-        const {objects} = this.props;
+        //const {objects} = this.props;
         const selectedId = e.target.value;
 
         if(selectedId === 'none'){
             this.setState({none:true});
-            return;
+            return false;
         }
-
+        this.setState({
+            currentObjId:selectedId,
+            none:false
+        })
+        /*
         const [extractedObj] = objects.filter(obj => obj.id === selectedId);
 
 
@@ -92,14 +114,18 @@ class Manage extends Component{
                                             directionResponse:undefined,
             currentDistanceResponse:distanceResponse?distanceResponse:undefined,
             none:false
-        });   
+        }); 
+        */  
     }
 
 
     render(){
 
-        const {currentDirectionResponse,
-            currentDistanceResponse,none} = this.state;
+        //const {currentDirectionResponse,
+        //currentDistanceResponse,none} = this.state;
+        const {none,currentObjId} = this.state;
+        const getCurrentResponse = this.filterResponse();
+        const {currentDistanceResponse,currentDirectionResponse} = getCurrentResponse?getCurrentResponse:{};
         const {distance,duration} = currentDistanceResponse?
                                 currentDistanceResponse:{};
         const {currentLocation,objects,mode,map} = this.props;
@@ -161,7 +187,8 @@ class Manage extends Component{
                 
 
                 <h3>Select Object:</h3>
-                <select defaultValue = 'none' onChange = {this.handleChange}>
+                <select value = {currentObjId}
+                 defaultValue = 'none' onChange = {this.handleChange}>
                     <option value = 'none'>None</option>
                     <option value = '' disabled></option>
                     {objects.map(obj => (
@@ -203,15 +230,15 @@ const mapStateToProps = ({currentLocation,objects,mode,map}) => {
 
 const areStatesEqual = (next,prev) => {
     
-    if(next.currentLocation.lat !== prev.currentLocation.lat &&
-        prev.currentLocation.lng !== next.currentLoading.lng)
+    if(next.currentLocation.lat !== prev.currentLocation.lat ||
+        prev.currentLocation.lng !== next.currentLocation.lng)
         return false;
     
     if(next.mode !== prev.mode)
         return false;
     
     if(next.map !== prev.map)
-        return false 
+        return false; 
 
     const newObjects = next.objects;
     const preObjects = prev.objects;
