@@ -1,6 +1,0 @@
-Color Combination For this site is 
-Red, Blue, Yellow
-
-yellow #fdd835 yellow darken-1
-blue #01579b light-blue darken-4
-red #ff5252 red accent-2
