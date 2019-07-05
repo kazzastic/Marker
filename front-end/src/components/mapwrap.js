@@ -25,8 +25,8 @@ class GoogleMapWrapper extends Component{
         if (currentLocation.lat && currentLocation.lng)
             return (
                 
-                <GoogleMap mapContainerStyle= {{height: "680px",
-                 width: "480px" }} center = {currentLocation} zoom = {20}
+                <GoogleMap mapContainerStyle= {{height: '100vh' ,
+                 width: '100vw' }} center = {currentLocation} zoom = {20}
                  onClick = {onClick? (e) => onClick(e):undefined} 
                  mapTypeId = {map} onMapTypeIdChanged = {this.handleType}
                  onLoad = {map => this.map = map}>

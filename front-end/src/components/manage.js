@@ -160,8 +160,8 @@ class Manage extends Component{
                 </div>
 
                 
-                <GoogleMap mapContainerStyle = {{height: "680px",
-                 width: "480px" }} center = {currentLocation} zoom = {20}
+                <GoogleMap mapContainerStyle = {{height: "100vh",
+                 width: "100vw" }} center = {currentLocation} zoom = {20}
                  onLoad = {map => this.map = map} mapTypeId = {map} 
                  onMapTypeIdChanged = {this.handleType}> 
 
