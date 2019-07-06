@@ -6,15 +6,14 @@ import {createStore} from 'redux';
 import middleware from './middlewares';
 import rootReducer from './reducers';
 import {Provider} from 'react-redux';
-import UI from './components/UI'
-
+//import NavBar from './components/navBar'
+//import Footer from './components/footer'
 
 
 const store = createStore(rootReducer,middleware);
 
 ReactDOM.render(
     <Provider store = {store}>
-        <UI/>
         <App />
     </Provider>, 
     document.getElementById('root'));

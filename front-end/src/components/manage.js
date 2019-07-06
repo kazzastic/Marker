@@ -7,6 +7,7 @@ import {deleteObjectSync} from '../actions/objects';
 import {mapTypeChangeSync} from '../actions/map';
 import {changeModeASync} from '../actions/mode';
 import DirectionServiceWrapper from './directionWrapper';
+import { RadioGroup } from '@material-ui/core';
 
 
 
@@ -142,7 +143,6 @@ class Manage extends Component{
                      name = 'modeInput' defaultChecked = 
                      {mode === 'driving'} />
                      <label>DRIVING</label>
-                   
 
                     <input type = 'radio' value = 'bicycling'
                      name = 'modeInput' defaultChecked = {mode === 'bicycling'}/>
@@ -157,6 +157,13 @@ class Manage extends Component{
                      name = 'modeInput' defaultChecked = {mode === 'walking'} />
                     <label>WALKING</label>
                          
+                </div>
+                <div>
+                <RadioGroup
+                          name="size"
+                          label="T-Shirt Size"
+                          options={[{label: 'XL',value: 'xl'},{label: 'L',value: 'l'},{label: 'M',value: 'm'}]}
+                        />
                 </div>
 
                 

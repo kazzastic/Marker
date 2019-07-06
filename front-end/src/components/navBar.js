@@ -18,12 +18,14 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Home from '@material-ui/icons/Home';
 import Manage from '@material-ui/icons/Settings';
 import Heart from '@material-ui/icons/Favorite';
+import People from '@material-ui/icons/People';
 
 const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
+    color : 'pink',
   },
   appBar: {
     transition: theme.transitions.create(['margin', 'width'], {
@@ -149,9 +151,16 @@ export default function UI() {
             </ListItem>
 
             <ListItem>
-              <ListItemLink href='/about'>
+              <ListItemLink href='#'>
               <ListItemIcon><Heart/></ListItemIcon>
               <ListItemText>My Places</ListItemText>
+              </ListItemLink>
+            </ListItem>
+
+            <ListItem>
+              <ListItemLink href='/about'>
+              <ListItemIcon><People/></ListItemIcon>
+              <ListItemText>About-Us</ListItemText>
               </ListItemLink>
             </ListItem>
         </List>
