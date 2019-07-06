@@ -19,6 +19,7 @@ import Home from '@material-ui/icons/Home';
 import Manage from '@material-ui/icons/Settings';
 import Heart from '@material-ui/icons/Favorite';
 import People from '@material-ui/icons/People';
+import {NavLink} from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -79,10 +80,6 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function ListItemLink(props) {
-  return <ListItem button component="a" {...props} />;
-}
-
 export default function UI() {
   const classes = useStyles();
   const theme = useTheme();
@@ -136,33 +133,33 @@ export default function UI() {
         </div>
         <Divider />
         <List>
+          <NavLink to = '/' exact>
             <ListItem>
-              <ListItemLink href='/'>
               <ListItemIcon><Home/></ListItemIcon>
               <ListItemText>Home</ListItemText>
-              </ListItemLink>
             </ListItem>
+          </NavLink>
 
+          <NavLink to = '/manage'>
             <ListItem>
-              <ListItemLink href='/manage'>
               <ListItemIcon><Manage/></ListItemIcon>
               <ListItemText>Manage</ListItemText>
-              </ListItemLink>
             </ListItem>
-
+          </NavLink>
+  
+          <NavLink to = '#'>
             <ListItem>
-              <ListItemLink href='#'>
               <ListItemIcon><Heart/></ListItemIcon>
               <ListItemText>My Places</ListItemText>
-              </ListItemLink>
             </ListItem>
+          </NavLink>
 
+          <NavLink to = '/about'>
             <ListItem>
-              <ListItemLink href='/about'>
               <ListItemIcon><People/></ListItemIcon>
               <ListItemText>About-Us</ListItemText>
-              </ListItemLink>
             </ListItem>
+          </NavLink>
         </List>
       </Drawer>
     </div>

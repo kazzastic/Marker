@@ -7,7 +7,7 @@ import {deleteObjectSync} from '../actions/objects';
 import {mapTypeChangeSync} from '../actions/map';
 import {changeModeASync} from '../actions/mode';
 import DirectionServiceWrapper from './directionWrapper';
-import { RadioGroup } from '@material-ui/core';
+import {Select, Button} from 'react-materialize';
 
 
 
@@ -143,6 +143,7 @@ class Manage extends Component{
                      name = 'modeInput' defaultChecked = 
                      {mode === 'driving'} />
                      <label>DRIVING</label>
+                   
 
                     <input type = 'radio' value = 'bicycling'
                      name = 'modeInput' defaultChecked = {mode === 'bicycling'}/>
@@ -157,13 +158,6 @@ class Manage extends Component{
                      name = 'modeInput' defaultChecked = {mode === 'walking'} />
                     <label>WALKING</label>
                          
-                </div>
-                <div>
-                <RadioGroup
-                          name="size"
-                          label="T-Shirt Size"
-                          options={[{label: 'XL',value: 'xl'},{label: 'L',value: 'l'},{label: 'M',value: 'm'}]}
-                        />
                 </div>
 
                 
@@ -194,7 +188,7 @@ class Manage extends Component{
                 
 
                 <h3>Select Object:</h3>
-                <select value = {currentObjId}
+                <Select value = {currentObjId}
                  defaultValue = 'none' onChange = {this.handleChange}>
                     <option value = 'none'>None</option>
                     <option value = '' disabled></option>
@@ -203,18 +197,18 @@ class Manage extends Component{
                             {obj.id}
                         </option>
                     ))}
-                </select>
+                </Select>
 
-                {!none && (
+                
                 <div>
                     <p>Distance : {distance?distance.text:''}</p>
                     <p>Time: {duration?duration.text:''}</p>
 
-                    <button onClick = {this.handleDelete}>
+                    <Button onClick = {this.handleDelete}>
                         Delete Object
-                    </button>
+                    </Button>
                 </div>
-                )}
+                
 
             </div>
             
