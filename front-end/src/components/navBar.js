@@ -26,7 +26,8 @@ const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
-    color : 'pink',
+    color : 'white',
+    
   },
   appBar: {
     transition: theme.transitions.create(['margin', 'width'], {
@@ -127,7 +128,7 @@ export default function UI() {
         }}
       >
         <div className={classes.drawerHeader}>
-          <IconButton onClick={handleDrawerClose}>
+          <IconButton onClick={handleDrawerClose} >
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
         </div>

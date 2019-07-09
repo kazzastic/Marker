@@ -9,7 +9,8 @@ class sticky extends Component{
             copyrights="&copy 2019 Copyright by Marker Team"
             moreLinks={<a />}
             links={<ul />}
-            className="example"
+            className=" blue darken-4"
+            background-color= "red"
           >
             <h5 className="white-text">
             Marker Web App

@@ -4,6 +4,9 @@ import GoogleMapWrapper from './mapwrap';
 import {addObjectASync} from '../actions/objects';
 import DirectionServiceWrapper from './directionWrapper';
 import {connect} from 'react-redux';
+import {Modal, Button, Icon} from 'react-materialize'
+import Step from './stepp'
+
 
 
 class Add extends Component{
@@ -103,38 +106,43 @@ class Add extends Component{
         
         return(
             <div>
-                <p>
-                    Mark the Object!
-                </p>
-
+                <Step/>
                 <div>
                     <GoogleMapWrapper onClick = 
                      {clickable?this.onClick:undefined} cachedMarker =
                      {cachedMarker} />
                 </div>
                 {/*apply react transition here */}
-                {objectMarked && ( 
-                    <form onSubmit = {this.onAdd}>
+                {objectMarked && (  
+                    <Modal header = "what's the name of your object bro?" open>
+                        <form onSubmit = {this.onAdd}>
 
-                        <input value = {input} onChange = {this.onChange}
-                         placeholder = {'Object Name e.g Bag'} type = 'text' />
+                            <input value = {input} onChange = {this.onChange}
+                            placeholder = {'Object Name e.g Bag'} type = 'text' />
 
-                         <button disabled = {input==='' || 
-                          isObjExist === true} type = 'submit'>
-                            Add Object
-                         </button>
-                         
-                         <button type="button" onClick = {this.onCancel}>
-                             Cancel
-                         </button>
+                            <Button disabled = {input==='' || 
+                            isObjExist === true} type = 'submit' style={{marginRight: '5px', backgroundColor:'blue'}}>
+                                Add Object
+                                <Icon left>
+                                    add
+                                </Icon>
+                            </Button>
+                            
+                            <Button type="button" onClick = {this.onCancel} style={{backgroundColor:'blue'}}>
+                                Cancel
+                                <Icon right>
+                                    delete_sweep
+                                </Icon>
+                            </Button>
 
-                         {isObjExist && (
-                            <label>
-                                Object with this name already exists.
-                            </label>
-                         )}
+                            {isObjExist && (
+                                <label>
+                                    Object with this name already exists.
+                                </label>
+                            )}
 
-                    </form>
+                        </form>
+                    </Modal>
                 )}
 
                 {fetchDirection && (<DirectionServiceWrapper />)}

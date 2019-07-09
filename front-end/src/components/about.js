@@ -1,14 +1,14 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
 
 
-class About extends React.Component{
+class about extends Component{
     render(){
         return(
-            <div className='container'>
+            <div>
                 <h1>Hello</h1>
             </div>
-        );
+        )
     }
 }
 
-export default About;
+export default about;
