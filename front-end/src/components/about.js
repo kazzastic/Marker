@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react'
-import {Row, Col,Carousel, CardPanel, Parallax} from 'react-materialize'
+import {Row, Col,Carousel, CardPanel, Parallax, Card, CardTitle} from 'react-materialize'
 
 class about extends Component{
     render(){
@@ -36,17 +36,31 @@ class about extends Component{
                             <h2 className="header" style={{textAlign:"center"}}>
                                 Who are we?
                             </h2>
-                            <p className="grey-text text-darken-3 lighten-3">
-                                Parallax is an effect where the background content or image in this case, is moved at a different speed than the foreground content while scrolling.
-                            </p>
+                            <p style={{textAlign:"center"}}>A bunch of aspiring web developers trying to make something of thier lives!</p>
+                            <h2 style={{textAlign:"center"}}>-Our Team-</h2>
+                            <Row>
+                                <Col m={4} s={12}>
+                                    <Card header={<CardTitle/>} title = 'Shameer'>
+                                        Here is the standard card with an image thumbnail.
+                                    </Card>
+                                </Col>
+                                <Col m={4} s={12}>
+                                    <Card header={<CardTitle/>} title = 'Saad'>
+                                        Here is the standard card with an image thumbnail.
+                                    </Card>
+                                </Col>
+                                <Col m={4} s={12}>
+                                    <Card header={<CardTitle/>} title = 'Kazim'>
+                                        Here is the standard card with an image thumbnail.
+                                    </Card>
+                                </Col>
+                            </Row>
                         </div>
                     </div>
                     <Parallax image={<img src='https://www.telegeography.com/page_attachments/products/website/telecom-maps/0008/3882/sub-cable-map-2015.png' />} />
                     <div className="section white">
                         <div className="row container">
-                            <h2 className="header">
-                                Parallax
-                            </h2>
+                        <h3 className='header' style={{textAlign:"center"}}>-Our Mission-</h3>
                             <p className="grey-text text-darken-3 lighten-3">
                                 Parallax is an effect where the background content or image in this case, is moved at a different speed than the foreground content while scrolling.
                             </p>
