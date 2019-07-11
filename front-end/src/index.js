@@ -6,8 +6,6 @@ import {createStore} from 'redux';
 import middleware from './middlewares';
 import rootReducer from './reducers';
 import {Provider} from 'react-redux';
-//import NavBar from './components/navBar'
-//import Footer from './components/footer'
 
 
 const store = createStore(rootReducer,middleware);

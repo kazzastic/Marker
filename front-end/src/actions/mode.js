@@ -1,6 +1,6 @@
 import { CHANGE_MODE } from "../types/mode";
 import { updateObjectsDistanceASync } from "./shared";
-import {showLoading,hideLoading} from 'react-redux-loading';
+import {showLoading,hideLoading} from '../actions/loading';
 
 
 const changeModeSync = (newMode) => ({

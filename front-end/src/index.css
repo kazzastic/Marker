@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.badge {
+  height: 13px;
+  width: 23px;
+  display: table-cell;
+  text-align: center;
+  color:black;
+  vertical-align: middle;
+  border-radius: 50%; /* may require vendor prefixes */
+  background: red;
+}

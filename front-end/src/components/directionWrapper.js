@@ -15,7 +15,7 @@ class DirectionServiceWrapper extends Component {
     
     render(){
         const {currentLocation,mode,objects} = this.props;
-        const elt = (objects.map(obj => (<li key= {obj.id}>
+        const elt = (objects.map(obj => (<li key = {obj.id}>
                 <DirectionsService options = {{
                     origin:currentLocation,
                     destination:obj.location,
@@ -24,9 +24,11 @@ class DirectionServiceWrapper extends Component {
                         this.handleDirection(obj.id,response)}
                 /></li>
             )));
+
         console.log('rendering direction:',elt,currentLocation,mode,objects);
+
         return(
-            <ul>
+            <ul style = {{listStyleType:'none'}}>
                 {elt}
             </ul>
         );
