@@ -187,7 +187,7 @@ class Manage extends Component{
                 
                 
 
-                <h3>Select Object:</h3>
+                <h3>Select Object haha:</h3>
                 <Select value = {currentObjId}
                  defaultValue = 'none' onChange = {this.handleChange}>
                     <option value = 'none'>None</option>
