@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+import React,{Component,Fragment} from 'react';
 import {GoogleMap,Marker,InfoWindow,DirectionsRenderer} from
  '@react-google-maps/api';
 //import {DirectionsRenderer} from "react-google-maps";
@@ -7,8 +7,8 @@ import {deleteObjectSync} from '../actions/objects';
 import {mapTypeChangeSync} from '../actions/map';
 import {changeModeASync} from '../actions/mode';
 import DirectionServiceWrapper from './directionWrapper';
-import {Select, Button} from 'react-materialize';
-
+import {Select, Button,ProgressBar} from 'react-materialize';
+/*global google*/
 
 
 class Manage extends Component{
@@ -96,9 +96,13 @@ class Manage extends Component{
         const selectedId = e.target.value;
 
         if(selectedId === 'none'){
-            this.setState({none:true});
-            return false;
+            this.setState({
+                none:true,
+                currentObjId:null
+            });
+            return;
         }
+
         this.setState({
             currentObjId:selectedId,
             none:false
@@ -126,10 +130,16 @@ class Manage extends Component{
         //currentDistanceResponse,none} = this.state;
         const {none,currentObjId} = this.state;
         const getCurrentResponse = this.filterResponse();
-        const {currentDistanceResponse,currentDirectionResponse} = getCurrentResponse?getCurrentResponse:{};
+        const {currentDistanceResponse,currentDirectionResponse} = 
+                                getCurrentResponse?getCurrentResponse:{};
         const {distance,duration} = currentDistanceResponse?
                                 currentDistanceResponse:{};
-        const {currentLocation,objects,mode,map} = this.props;
+        const path = currentDirectionResponse?
+                        currentDirectionResponse.routes[0].legs[0]:null;
+        const origin = path?path.start_location:null;
+        const dest = path?path.end_location:null;
+
+        const {currentLocation,objects,mode,map,loading} = this.props;
         
         console.log('Direction : ',currentDirectionResponse);
         return(
@@ -137,13 +147,16 @@ class Manage extends Component{
 
                 <DirectionServiceWrapper />
 
+                {loading && (<ProgressBar/>)}
+
                 <h3>Select Mode:</h3>
                 <div  onChange = {this.handleMode}>
-                    <input type = 'radio' value = 'driving' 
-                     name = 'modeInput' defaultChecked = 
-                     {mode === 'driving'} />
-                     <label>DRIVING</label>
-                   
+                    <div>
+                        <input type = 'radio' value = 'driving' 
+                        name = 'modeInput' defaultChecked = 
+                        {mode === 'driving'} />
+                        <label>DRIVING</label>
+                     </div>
 
                     <input type = 'radio' value = 'bicycling'
                      name = 'modeInput' defaultChecked = {mode === 'bicycling'}/>
@@ -165,20 +178,35 @@ class Manage extends Component{
                  width: "100vw" }} center = {currentLocation} zoom = {20}
                  onLoad = {map => this.map = map} mapTypeId = {map} 
                  onMapTypeIdChanged = {this.handleType}> 
-
+                    {/*
                     <Marker position = {currentLocation} 
                      icon = '../utils/images/donut.png'/>
 
                     <InfoWindow position = {currentLocation}>
                         <p>Current Location</p>
                     </InfoWindow>
-                    
+                    */}
                     {(currentDirectionResponse !== undefined && !none)&&(
-                    //<DirectionsRenderer directions = {currentDirectionResponse} />)
-                    <DirectionsRenderer options = {{
-                        directions:currentDirectionResponse,
-                        suppressMarkers:true
-                    }}/>
+                    <Fragment> 
+                    {/*<DirectionsRenderer directions = {currentDirectionResponse} />)*/}
+
+                        <DirectionsRenderer options = {{
+                            directions:currentDirectionResponse,
+                            suppressMarkers:true
+                        }}/>
+
+                        <Marker position = {{lat:origin.lat(),
+                         lng:origin.lng()}} icon= 
+                         {{path:google.maps.SymbolPath.CIRCLE,scale:10}}
+                         label = {{text:'You',color:'yellow',fontSize:'15px',
+                         fontWeight:'bold'}}/>
+
+                        <Marker position = {{lat:dest.lat(),
+                         lng:dest.lng()}} 
+                         label = {{text:currentObjId,color:'black',fontSize:'15px',
+                         fontWeight:'bold'}}/>
+
+                    </Fragment>
                     )
                     }   
                 
@@ -187,9 +215,15 @@ class Manage extends Component{
                 
                 
 
+<<<<<<< HEAD
                 <h3>Select Object haha:</h3>
                 <Select value = {currentObjId}
                  defaultValue = 'none' onChange = {this.handleChange}>
+=======
+                <h3>Select Object:</h3>
+                <Select value = {currentObjId?currentObjId:'none'}
+                 onChange = {this.handleChange}>
+>>>>>>> 4c9f7d3214d42003d9922de1be5abb1b383a1204
                     <option value = 'none'>None</option>
                     <option value = '' disabled></option>
                     {objects.map(obj => (
@@ -198,18 +232,20 @@ class Manage extends Component{
                         </option>
                     ))}
                 </Select>
-
                 
-                <div>
-                    <p>Distance : {distance?distance.text:''}</p>
-                    <p>Time: {duration?duration.text:''}</p>
+                
+                
+                {!none && (
+                 <div key = 'details'>
+                    <p >Distance : {distance?distance.text:''}</p>
+                    <p >Time: {duration?duration.text:''}</p>
 
                     <Button onClick = {this.handleDelete}>
                         Delete Object
                     </Button>
                 </div>
+                )}
                 
-
             </div>
             
         );
@@ -217,7 +253,7 @@ class Manage extends Component{
 }
 
 
-const mapStateToProps = ({currentLocation,objects,mode,map}) => {
+const mapStateToProps = ({currentLocation,objects,mode,map,loading}) => {
     /*
     //console.log('google.geoetry',google.maps.geometry.encoding);
     console.log(new google.maps.Map())
@@ -225,7 +261,7 @@ const mapStateToProps = ({currentLocation,objects,mode,map}) => {
     objects.forEach(object=> object.directionResponse = convert(object.directionResponse));
     console.log('converted objects:',objects);
     */
-    return {objects,currentLocation,mode,map};
+    return {objects,currentLocation,mode,map,loading};
 
 };
 

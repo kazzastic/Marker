@@ -24,9 +24,8 @@ class GoogleMapWrapper extends Component{
         //console.log('ff',new google.maps.LatLng(24.919988335566842,67.1343894711640));
         if (currentLocation.lat && currentLocation.lng)
             return (
-                
-                <GoogleMap mapContainerStyle= {{height: '100vh' ,
-                 width: '100vw' }} center = {currentLocation} zoom = {20}
+                <GoogleMap mapContainerStyle= {{height: "100vh",
+                 width: "100vw" }} center = {currentLocation} zoom = {20}
                  onClick = {onClick? (e) => onClick(e):undefined} 
                  mapTypeId = {map} onMapTypeIdChanged = {this.handleType}
                  onLoad = {map => this.map = map}>
@@ -47,8 +46,8 @@ class GoogleMapWrapper extends Component{
                 </GoogleMap>
                 );
 
-            else
-                return null;
+        else
+            return null;
             
     }
 }

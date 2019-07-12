@@ -3,9 +3,9 @@ import React,{Component} from 'react';
 import GoogleMapWrapper from './mapwrap';
 import {addObjectASync} from '../actions/objects';
 import DirectionServiceWrapper from './directionWrapper';
+import {Modal, Button, Icon} from 'react-materialize';
 import {connect} from 'react-redux';
-import {Modal, Button, Icon} from 'react-materialize'
-import Step from './stepp'
+import Step from './Step'
 
 
 
@@ -98,6 +98,17 @@ class Add extends Component{
             this.props.history.push('/');
         }
     }
+
+
+    onModalClose = () => {
+        this.setState({
+            clickable:true,
+            input:'',
+            cachedMarker:null,
+            objectMarked:false,
+            isObjExist:false,
+        });
+    }
     
 
     render(){
@@ -106,30 +117,40 @@ class Add extends Component{
         
         return(
             <div>
-                <Step/>
+
+                <Step />
+
                 <div>
                     <GoogleMapWrapper onClick = 
                      {clickable?this.onClick:undefined} cachedMarker =
                      {cachedMarker} />
                 </div>
                 {/*apply react transition here */}
-                {objectMarked && (  
-                    <Modal header = "what's the name of your object bro?" open>
-                        <form onSubmit = {this.onAdd}>
+                {objectMarked && ( 
+                    <Modal header = "What's the name of your object?" 
+                     options = {{dismissible:false,onCloseStart:
+                     this.onModalClose}} open >
+                        <form onSubmit = {this.onAdd} >
 
                             <input value = {input} onChange = {this.onChange}
-                            placeholder = {'Object Name e.g Bag'} type = 'text' />
+                             placeholder = {'Object Name e.g Bag'} type = 
+                             'text' />
 
                             <Button disabled = {input==='' || 
-                            isObjExist === true} type = 'submit' style={{marginRight: '5px', backgroundColor:'blue'}}>
+                             isObjExist === true} type = 'submit'
+                             style={{marginRight: '5px',
+                              backgroundColor:'blue'}}>
                                 Add Object
+
                                 <Icon left>
                                     add
                                 </Icon>
                             </Button>
                             
-                            <Button type="button" onClick = {this.onCancel} style={{backgroundColor:'blue'}}>
+                            <Button type="button" onClick = {this.onCancel}
+                             style={{backgroundColor:'blue'}}>
                                 Cancel
+
                                 <Icon right>
                                     delete_sweep
                                 </Icon>

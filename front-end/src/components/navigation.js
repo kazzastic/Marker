@@ -5,7 +5,30 @@ import { connect } from 'react-redux';
 
 function Navigation(props){
     return(
-        <p>do not need this anymore, if we do then do something about it This component is in /component/navigation</p>
+        <nav>
+            <ul>
+                <li>
+                    <NavLink to = '/' exact >
+                        Home
+                    </NavLink>
+                </li>
+
+                <li>
+                    <div>
+                        <NavLink to = '/manage'>
+                            Manage
+                        </NavLink>
+
+                        <div>
+                            <label>
+                                {props.objects > 0?props.objects:''}
+                            </label>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </nav>
     );
 }
 

@@ -7,10 +7,10 @@ import LoadingBar from 'react-redux-loading';
 import Home from './home';
 import Manage from './manage';
 import Add from './add';
-import About from './about'
-import {getCurrLocASync} from '../actions/location';
+import About from './about';
 import NavBar from './navBar'
 import Footer from './footer'
+import {getCurrLocASync} from '../actions/location';
 
 
 
@@ -38,9 +38,10 @@ class App extends Component{
                 <BrowserRouter>
                     <Fragment>
 
-                        <LoadingBar />
+                       {/* <LoadingBar />*/}
 
                         <div>
+                            {/*<Navigation />*/}
                             <NavBar />
 
                             {loading? null: (
@@ -48,11 +49,11 @@ class App extends Component{
                                     <Route exact path = '/' component = {Home} />
                                     <Route path = '/manage' component = {Manage} />
                                     <Route path = '/add' component = {Add} />
-                                    <Route path = '/about' component = {About}/>
+                                    <Route path = '/about' component = {About} />
                                 </div>   
                             )}
 
-                            <Footer/>
+                            <Footer />
                         </div>
                     </Fragment>
                 </BrowserRouter>
