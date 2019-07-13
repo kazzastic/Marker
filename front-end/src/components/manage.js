@@ -7,7 +7,9 @@ import {deleteObjectSync} from '../actions/objects';
 import {mapTypeChangeSync} from '../actions/map';
 import {changeModeASync} from '../actions/mode';
 import DirectionServiceWrapper from './directionWrapper';
-import {Select, Button,ProgressBar} from 'react-materialize';
+import {Select, Button,ProgressBar,Modal,RadioGroup}
+ from 'react-materialize';
+import setting from './icons/settings-512.png';
 /*global google*/
 
 
@@ -19,7 +21,8 @@ class Manage extends Component{
             currentObjId:null,
             currentDirectionResponse:undefined,
             currentDistanceResponse:undefined,
-            none:true
+            none:true,
+            modalOpen:false
         }
     }
     /*
@@ -91,6 +94,22 @@ class Manage extends Component{
     }
     */
 
+    
+    handleLoad = (map) => {
+        this.map = map;
+        const controlDiv = document.createElement('div');
+        controlDiv.className = 'custDiv';
+        controlDiv.title = 'Manage your objects';
+        //controlDiv.style.backgroundImage = `url(${setting})`;
+        
+        
+        //controlDiv.appendChild(controlButton);
+        controlDiv.addEventListener('click',() => this.setState({
+            modalOpen:true
+        }));
+        this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(controlDiv);
+    }
+
     handleChange = (e) => {
         //const {objects} = this.props;
         const selectedId = e.target.value;
@@ -124,11 +143,14 @@ class Manage extends Component{
     }
 
 
+    onModalClose = () => this.setState({modalOpen:false});
+
+
     render(){
 
         //const {currentDirectionResponse,
         //currentDistanceResponse,none} = this.state;
-        const {none,currentObjId} = this.state;
+        const {none,currentObjId,modalOpen} = this.state;
         const getCurrentResponse = this.filterResponse();
         const {currentDistanceResponse,currentDirectionResponse} = 
                                 getCurrentResponse?getCurrentResponse:{};
@@ -149,6 +171,27 @@ class Manage extends Component{
 
                 {loading && (<ProgressBar/>)}
 
+                {modalOpen && 
+                (<Modal header = "Handle Your Objects!" 
+                  options = {{dismissible:true,onCloseStart:
+                  this.onModalClose}} open>
+
+
+                      <br />
+                      <h6 style = {{textAlign:'center',color:'teal'}}>
+                          Select Mode:
+                      </h6>
+                      <RadioGroup name="Mode" withGap
+                       value = {mode} options ={[
+                          {label:'DRIVING',value:'driving'},
+                          {label:'BICYCLING',value:'bicycling'},
+                          {label:'TRANSIT',value:'transit'},
+                          {label:'WALKING',value:'walking'}
+                       ]} onChange = {this.handleMode}/>
+
+
+                </Modal>)}
+                {/*
                 <h3>Select Mode:</h3>
                 <div  onChange = {this.handleMode}>
                     <div>
@@ -172,11 +215,11 @@ class Manage extends Component{
                     <label>WALKING</label>
                          
                 </div>
-
+                */}
                 
                 <GoogleMap mapContainerStyle = {{height: "100vh",
                  width: "100vw" }} center = {currentLocation} zoom = {20}
-                 onLoad = {map => this.map = map} mapTypeId = {map} 
+                 onLoad = {this.handleLoad} mapTypeId = {map} 
                  onMapTypeIdChanged = {this.handleType}> 
                     {/*
                     <Marker position = {currentLocation} 
