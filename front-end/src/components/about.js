@@ -1,3 +1,14 @@
+<<<<<<< HEAD
+import React, {Component, Fragment} from 'react'
+import {Row, Col,Carousel, CardPanel, Parallax, Card, CardTitle} from 'react-materialize'
+
+class about extends Component{
+    render(){
+        return(
+            <Fragment>
+                <Carousel options={{fullWidth: true,indicators: false, duration:100, shift:10,centerImages: true, images:['https://i.ytimg.com/vi/ZYVX0wviSgQ/maxresdefault.jpg'] }} className="white-text center">
+                    <div className="teal">
+=======
 import React,{Fragment} from 'react';
 import {Row, Col,Carousel, CardPanel, Parallax,
  Card, CardTitle} from 'react-materialize';
@@ -12,6 +23,7 @@ function About(props) {
                  duration:200, shift:0,dist:-100 }} className="white-text center">
 
                     <div className="blue">
+>>>>>>> 4c9f7d3214d42003d9922de1be5abb1b383a1204
                         <h2>Team</h2>
                         <p>
                             This Web App was made possible by the hard work
@@ -31,9 +43,13 @@ function About(props) {
                         </p>
                         <p>~Rumi</p>
                     </div>
+<<<<<<< HEAD
+                    <div className="teal">
+=======
 
 
                     <div className="blue">
+>>>>>>> 4c9f7d3214d42003d9922de1be5abb1b383a1204
                         <h2>Saad Muhammad Syed</h2>
                         <h5>CT-057</h5>
                         <p>
@@ -140,10 +156,14 @@ function About(props) {
                             </h3>
                             
                             <p className="grey-text text-darken-3 lighten-3">
+<<<<<<< HEAD
+                            To create, share, and apply knowledge in Computer Science, including in interdisciplinary areas that extend the scope of Computer Science and benefit humanity; to educate students to be successful, ethical, and effective problem-solvers and life-long learners who will contribute positively to the economic well-being of our region and nation and who are prepared to tackle complex 21st Century challenges facing the world.
+=======
                                 Parallax is an effect where the background
                                 content or image in this case, is moved at a 
                                 different speed than the foreground content
                                 while scrolling.
+>>>>>>> 4c9f7d3214d42003d9922de1be5abb1b383a1204
                             </p>
 
                         </div>

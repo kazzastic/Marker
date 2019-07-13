@@ -258,9 +258,15 @@ class Manage extends Component{
                 
                 
 
+<<<<<<< HEAD
+                <h3>Select Object haha:</h3>
+                <Select value = {currentObjId}
+                 defaultValue = 'none' onChange = {this.handleChange}>
+=======
                 <h3>Select Object:</h3>
                 <Select value = {currentObjId?currentObjId:'none'}
                  onChange = {this.handleChange}>
+>>>>>>> 4c9f7d3214d42003d9922de1be5abb1b383a1204
                     <option value = 'none'>None</option>
                     <option value = '' disabled></option>
                     {objects.map(obj => (
