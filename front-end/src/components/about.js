@@ -95,6 +95,7 @@ function About(props) {
                                 -Our Mission-
                             </h3>
                             
+                            
                             <p className="grey-text text-darken-3 lighten-3" style={{textAlign:"center"}}>
                             We exist to enable transformation for industry-leading brands.<br/>
 
@@ -102,7 +103,53 @@ With every team member staying keenly focused on our mission, we've become a pre
 
 We take great pride in our people, and how they are continually striving for a higher level of excellence by being committed to our mission and core values. Our people, and the shared values they embody, are the foundations of our organization and the reasons for our success. Our values define us as a global organization, bring us together as a Nisum family, and guide us in how we work with each other and with clients.
                             </p>
-
+                            <Carousel options={{fullWidth: true,indicators: true}} className="white-text center">
+                                <div className="teal">
+                                    <h2>
+                                        Team
+                                    </h2>
+                                    <p>
+                                        This Web App was made possible by the hard work	
+                                        put in by these down to earth young people
+                                    </p>
+                                </div>
+                                <div className="blue">
+                                    <h2>
+                                        Syed Shameer Sarwar
+                                    </h2>
+                                    <h5>CT-044</h5>
+                                    <p>
+                                            Out beyond ideas of wrongdoing and rightdoing 	
+                                    there is a field.<br/> I'll meet you there. When the	
+                                    soul lies down in that grass the world is too 	
+                                    full to talk about
+                                    </p>
+                                    <p>~Maulana Rumi</p>
+                                </div>
+                                <div className="blue">
+                                    <h2>
+                                    Saad Muhammad Syed
+                                    </h2>
+                                    <h5>CT-057</h5>
+                                    <p>
+                                    Very little grows on jagged rock. Be ground. 	
+                           Be crumbled, so wildflowers will come up 	
+                           where you are.
+                                    </p>
+                                    <p>~Rumi</p>
+                                </div>
+                                <div className="blue">
+                                    <h2>
+                                    Kazim Raza
+                                    </h2>
+                                    <p>
+                                    I came to know Allah, the Glorified, through 	
+                            the breaking of determinations, change of 	
+                            intentions and losing of courag
+                                    </p>
+                                    <p>~Amir al-mu'minin</p>
+                                </div>
+                            </Carousel>
                         </div>
                     </div>
 
