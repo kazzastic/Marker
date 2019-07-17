@@ -189,6 +189,32 @@ class Manage extends Component{
                           {label:'WALKING',value:'walking'}
                        ]} onChange = {this.handleMode}/>
 
+                       <hr/><br/><br/>
+
+                        <h6>Select Object:</h6>
+                            <Select value = {currentObjId?currentObjId:'none'}
+                            onChange = {this.handleChange}>
+                                <option value = 'none'>None</option>
+                                <option value = '' disabled></option>
+                                {objects.map(obj => (
+                                    <option key = {obj.id} value = {obj.id}>
+                                        {obj.id}
+                                    </option>
+                                ))}
+                            </Select>
+                
+                
+                            
+                            {!none && (
+                            <div key = 'details'>
+                                <p >Distance : {distance?distance.text:''}</p>
+                                <p >Time: {duration?duration.text:''}</p>
+
+                                <Button onClick = {this.handleDelete}>
+                                    Delete Object
+                                </Button>
+                            </div>
+                            )}
 
                 </Modal>)}
                 {/*
@@ -248,7 +274,6 @@ class Manage extends Component{
                          lng:dest.lng()}} 
                          label = {{text:currentObjId,color:'black',fontSize:'15px',
                          fontWeight:'bold'}}/>
-
                     </Fragment>
                     )
                     }   
@@ -258,15 +283,9 @@ class Manage extends Component{
                 
                 
 
-<<<<<<< HEAD
-                <h3>Select Object haha:</h3>
-                <Select value = {currentObjId}
-                 defaultValue = 'none' onChange = {this.handleChange}>
-=======
-                <h3>Select Object:</h3>
+                {/*<h3>Select Object:</h3>
                 <Select value = {currentObjId?currentObjId:'none'}
                  onChange = {this.handleChange}>
->>>>>>> 4c9f7d3214d42003d9922de1be5abb1b383a1204
                     <option value = 'none'>None</option>
                     <option value = '' disabled></option>
                     {objects.map(obj => (
@@ -287,8 +306,7 @@ class Manage extends Component{
                         Delete Object
                     </Button>
                 </div>
-                )}
-                
+                )}*/}
             </div>
             
         );

@@ -1,79 +1,21 @@
-<<<<<<< HEAD
-import React, {Component, Fragment} from 'react'
-import {Row, Col,Carousel, CardPanel, Parallax, Card, CardTitle} from 'react-materialize'
-
-class about extends Component{
-    render(){
-        return(
-            <Fragment>
-                <Carousel options={{fullWidth: true,indicators: false, duration:100, shift:10,centerImages: true, images:['https://i.ytimg.com/vi/ZYVX0wviSgQ/maxresdefault.jpg'] }} className="white-text center">
-                    <div className="teal">
-=======
 import React,{Fragment} from 'react';
-import {Row, Col,Carousel, CardPanel, Parallax,
+import {Row, Col,Carousel, Parallax,
  Card, CardTitle} from 'react-materialize';
 import img1 from '../utils/icons/shameer.jfif';
 import img2 from '../utils/icons/kazim.jfif';
 import img3 from '../utils/icons/saad.jpg'
+import saad from '../utils/icons/saad_me.jpg'
+import team1 from '../utils/icons/team.jpg'
+import team2 from '../utils/icons/team2.jpg'
+import parr from '../utils/icons/saad_me_a.jpg'
 
 function About(props) {
     return (
         <Fragment>
-                <Carousel options={{fullWidth: true,indicators: true,
-                 duration:200, shift:0,dist:-100 }} className="white-text center">
-
-                    <div className="blue">
->>>>>>> 4c9f7d3214d42003d9922de1be5abb1b383a1204
-                        <h2>Team</h2>
-                        <p>
-                            This Web App was made possible by the hard work
-                            put in by these down to earth young people
-                        </p>
-                    </div>
-
-
-                    <div className="blue">
-                        <h2>Syed Shameer Sarwar</h2>
-                        <h5>CT-044</h5>
-                        <p>
-                            Out beyond ideas of wrongdoing and rightdoing 
-                            there is a field. I'll meet you there. When the
-                            soul lies down in that grass the world is too 
-                            full to talk about
-                        </p>
-                        <p>~Rumi</p>
-                    </div>
-<<<<<<< HEAD
-                    <div className="teal">
-=======
-
-
-                    <div className="blue">
->>>>>>> 4c9f7d3214d42003d9922de1be5abb1b383a1204
-                        <h2>Saad Muhammad Syed</h2>
-                        <h5>CT-057</h5>
-                        <p>
-                           Very little grows on jagged rock. Be ground. 
-                           Be crumbled, so wildflowers will come up 
-                           where you are.
-                        </p>
-                        <p>~Rumi</p>
-                    </div>
-
-
-                    <div className="blue">
-                        <h2>Kazim Raza</h2>
-                        <h5>CT-054</h5>
-                        <p>
-                            I came to know Allah, the Glorified, through 
-                            the breaking of determinations, change of 
-                            intentions and losing of courage.
-                        </p>
-                        <p>~Amir al-mu'minin</p>
-                    </div>
-
-                </Carousel>
-
+            <Carousel options= {{fullWidth : true, indicators: true}}
+            images = {[ saad,
+                        team1,
+                        team2,]} centerImages = {true}/>
 
                 <div>
                     <div className="section white">
@@ -142,9 +84,7 @@ function About(props) {
                     </div>
 
                     <Parallax image={
-                    <img src={
-                    'https://www.telegeography.com/page_attachments/products/'
-                     +'website/telecom-maps/0008/3882/sub-cable-map-2015.png'}
+                    <img src={parr}
                       />} />
 
                     <div className="section white">
@@ -155,25 +95,19 @@ function About(props) {
                                 -Our Mission-
                             </h3>
                             
-                            <p className="grey-text text-darken-3 lighten-3">
-<<<<<<< HEAD
-                            To create, share, and apply knowledge in Computer Science, including in interdisciplinary areas that extend the scope of Computer Science and benefit humanity; to educate students to be successful, ethical, and effective problem-solvers and life-long learners who will contribute positively to the economic well-being of our region and nation and who are prepared to tackle complex 21st Century challenges facing the world.
-=======
-                                Parallax is an effect where the background
-                                content or image in this case, is moved at a 
-                                different speed than the foreground content
-                                while scrolling.
->>>>>>> 4c9f7d3214d42003d9922de1be5abb1b383a1204
+                            <p className="grey-text text-darken-3 lighten-3" style={{textAlign:"center"}}>
+                            We exist to enable transformation for industry-leading brands.<br/>
+
+With every team member staying keenly focused on our mission, we've become a preferred technology and business advisor for some of the worlds leading organizations. We deliver solutions that take our clients to exceptional new heights of performance, and thereby, fulfill our brand promise of Building Success Together®.<br/>
+
+We take great pride in our people, and how they are continually striving for a higher level of excellence by being committed to our mission and core values. Our people, and the shared values they embody, are the foundations of our organization and the reasons for our success. Our values define us as a global organization, bring us together as a Nisum family, and guide us in how we work with each other and with clients.
                             </p>
 
                         </div>
                     </div>
 
                     <Parallax image = {<img 
-                     src = { 
-                     'https://www.telegeography.com/page_attachments/'+
-                      'products/website/telecom-maps/0008/3882/sub-cable-map'
-                      +'-2015.png'}/>}/>
+                     src = {parr}/>}/>
 
                 </div>
             </Fragment>
