@@ -13,6 +13,8 @@ npm install @react-google-maps/api
 npm install redux-thunk
 npm install react-materialize 
 npm install @material-ui/core
+npm install loadash --save
+npm install loadash.throttle --save
 ```
 after just ```bash npm start``` into the server folder and front-end folder. 
 
