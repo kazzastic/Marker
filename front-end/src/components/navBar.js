@@ -17,7 +17,6 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Home from '@material-ui/icons/Home';
 import Manage from '@material-ui/icons/Settings';
-import Heart from '@material-ui/icons/Favorite';
 import People from '@material-ui/icons/People';
 import {NavLink} from 'react-router-dom';
 import {connect} from 'react-redux';
@@ -181,14 +180,6 @@ export default connect(mapStateToProps)(function UI(props) {
                     </ListItem>
                 </NavLink>
         
-                {/*
-                <NavLink to = '#'>
-                    <ListItem>
-                    <ListItemIcon><Heart/></ListItemIcon>
-                    <ListItemText>My Places</ListItemText>
-                    </ListItem>
-                </NavLink>*/
-                }
 
                 <NavLink to = '/about'>
                     <ListItem>

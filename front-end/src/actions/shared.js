@@ -16,7 +16,7 @@ export const updateObjectsDistanceASync = () => (dispatch,getState) => {
     const objectsCopy = objects.map( obj => ({...obj})); //deep copy of array of objects
     const modifiedObjects = [];
 
-    for(let object of objectsCopy){ //0.67 seconds for 20 objects
+    for(let object of objectsCopy){ 
         
         const newObj = {
             origin:currentLocation,

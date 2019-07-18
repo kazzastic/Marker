@@ -2,8 +2,6 @@ import React,{Component,Fragment} from 'react';
 import ScriptLoaded from './ScriptLoaded'
 import { connect } from 'react-redux';
 import {BrowserRouter,Route} from 'react-router-dom';
-import LoadingBar from 'react-redux-loading';
-//import Navigation from './navigation';
 import Home from './home';
 import Manage from './manage';
 import Add from './add';
@@ -38,10 +36,8 @@ class App extends Component{
                 <BrowserRouter>
                     <Fragment>
 
-                       {/* <LoadingBar />*/}
-
+                      
                         <div>
-                            {/*<Navigation />*/}
                             <NavBar />
 
                             {loading? null: (

@@ -1,5 +1,4 @@
 import React,{Component} from 'react';
-//import { GoogleMap,Marker} from '@react-google-maps/api';
 import GoogleMapWrapper from './mapwrap';
 import {addObjectASync} from '../actions/objects';
 import DirectionServiceWrapper from './directionWrapper';
@@ -25,7 +24,6 @@ class Add extends Component{
 
 
     onClick = (e) => {
-        //console.log(e);
         const lat = e.latLng.lat();
         const lng = e.latLng.lng();
         const location = {lat,lng};
@@ -125,11 +123,13 @@ class Add extends Component{
                      {clickable?this.onClick:undefined} cachedMarker =
                      {cachedMarker} />
                 </div>
-                {/*apply react transition here */}
+                
+
                 {objectMarked && ( 
                     <Modal header = "What's the name of your object?" 
                      options = {{dismissible:false,onCloseStart:
                      this.onModalClose}} open >
+
                         <form onSubmit = {this.onAdd} >
 
                             <input value = {input} onChange = {this.onChange}
@@ -158,7 +158,10 @@ class Add extends Component{
 
                             {isObjExist && (
                                 <label>
-                                    Object with this name already exists.
+                                    <bold style = {{color:'red'}}>
+                                        {'   Object with this name '+
+                                         'already exists.'}
+                                    </bold>
                                 </label>
                             )}
 

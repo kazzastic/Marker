@@ -7,12 +7,13 @@ import {connect} from 'react-redux';
 class DirectionServiceWrapper extends Component {
 
     handleDirection = (objID,response) => {
-        console.log('Res:',response);
         if(response !== null)
             if(response.status === 'OK')
-                setTimeout(()=>this.props.getDirectionResponseSync(objID,response),300);
+                setTimeout(() =>
+                    this.props.getDirectionResponseSync(objID,response),300);
     }
     
+
     render(){
         const {currentLocation,mode,objects} = this.props;
         const elt = (objects.map(obj => (<li key = {obj.id}>
@@ -25,7 +26,6 @@ class DirectionServiceWrapper extends Component {
                 /></li>
             )));
 
-        console.log('rendering direction:',elt,currentLocation,mode,objects);
 
         return(
             <ul style = {{listStyleType:'none'}}>
@@ -40,6 +40,7 @@ class DirectionServiceWrapper extends Component {
 const mapStateToProps = ({currentLocation,objects,mode}) => (
     {currentLocation,objects,mode}
 );
+
 
 export default connect(mapStateToProps,
     {getDirectionResponseSync})(DirectionServiceWrapper);

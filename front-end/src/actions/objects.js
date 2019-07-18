@@ -1,6 +1,5 @@
 import {ADD_OBJECT,DELETE_OBJECT,GET_DIRECTION_RESPONSE} from '../types/objects';
 import {getObjectResponse} from '../utils/ClientApi';
-//import {showLoading,hideLoading} from 'react-redux-loading';
 import {showLoading,hideLoading} from '../actions/loading';
 
 
@@ -37,14 +36,10 @@ export const addObjectASync = (newObject) => (dispatch,getState) => {
                    
                    const storeObj = {
                        id,location,
-                       //directionResponse:{...responseObj.directionResponse},
                        distanceResponse:responseObj.distanceResponse
                     };
                     
-                   //console.log('Reeeeees',responseObj);
-                    
                    dispatch(addObjectSync(storeObj));
-                   //console.log('dispatching hideloading.');
                    dispatch(hideLoading());
                });
 }

@@ -29,7 +29,7 @@ code {
   height:55px;
   width:55px;
   background-color: grey;
-  background-image: url('components/icons/settings-512.png');
+  background-image: url('utils/icons/settings-512.png');
 }
 .custDiv:active {
   box-shadow: 0 0 4px -1px rgba(0,0,0,1);
@@ -38,4 +38,9 @@ code {
 .custDiv:hover {
   box-shadow: 0 0 4px -1px rgba(0,0,0,0.8);
 }
+
+.parallas-container {
+  height:400px;
+}
+
 
