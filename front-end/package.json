@@ -9,7 +9,7 @@
     "clsx": "^1.0.4",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
-    "lodash": "^4.17.14",
+    "lodash": "^4.17.19",
     "lodash.throttle": "^4.1.1",
     "node-fetch": "^2.6.0",
     "react": "^16.8.6",
